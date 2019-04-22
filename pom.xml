@@ -32,7 +32,6 @@
             <groupId>org.fluentlenium</groupId>
             <artifactId>fluentlenium-festassert</artifactId>
             <version>0.13.2</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
