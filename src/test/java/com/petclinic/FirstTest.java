@@ -1,7 +1,6 @@
 package com.petclinic;
 
-
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.title;
