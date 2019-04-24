@@ -15,7 +15,7 @@ public class HomePageTest extends SeleniumBase {
         HomePage homePage = new HomePage().get();
 
         // then
-        assertThat(homePage.getPageTitle()).isEqualTo("PetClinic :: a Spring Framework demonstration");
+        assertThat(homePage.getPageTitle()).isEqualTo("Welcome");
     }
 
     @Test
@@ -29,6 +29,6 @@ public class HomePageTest extends SeleniumBase {
                 .clickFindOwnersButton();
 
         // then
-        assertThat(findOwnersPage.getPageTitle()).isEqualTo("PetClinic :: a Spring Framework demonstration");
+        assertThat(findOwnersPage.getPageTitle()).isEqualTo("Find Owners");
     }
 }
