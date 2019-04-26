@@ -20,6 +20,9 @@ public class FindOwnersPage extends LoadableComponent<FindOwnersPage> {
     @FindBy(css = "table[id='vets']")
     private SelenideElement ownersList;
 
+    @FindBy(css = "a[href='/owners/new']")
+    private SelenideElement addOwnerButton;
+
     public FindOwnersPage() {
         page(this);
     }
@@ -31,6 +34,11 @@ public class FindOwnersPage extends LoadableComponent<FindOwnersPage> {
     public FindOwnersPage clickFindOwnerButton() {
         findOwnerButton.click();
         return this;
+    }
+
+    public AddOwnerPage clickAddOwnerButton() {
+        addOwnerButton.click();
+        return new AddOwnerPage();
     }
 
     public boolean isOwnersListDisplayed() {
