@@ -17,11 +17,11 @@ public class FindOwnersPage extends LoadableComponent<FindOwnersPage> {
     @FindBy(css = "button[type='submit']")
     private SelenideElement findOwnerButton;
 
-    @FindBy(css = "table[id='vets']")
-    private SelenideElement ownersList;
-
     @FindBy(css = "a[href='/owners/new']")
     private SelenideElement addOwnerButton;
+
+    @FindBy(id = "lastName")
+    private SelenideElement searchByLastName;
 
     public FindOwnersPage() {
         page(this);
@@ -31,9 +31,9 @@ public class FindOwnersPage extends LoadableComponent<FindOwnersPage> {
         return pageTitle.getText();
     }
 
-    public FindOwnersPage clickFindOwnerButton() {
+    public OwnerDetailsPage clickFindOwnerButton() {
         findOwnerButton.click();
-        return this;
+        return new OwnerDetailsPage();
     }
 
     public AddOwnerPage clickAddOwnerButton() {
@@ -41,8 +41,9 @@ public class FindOwnersPage extends LoadableComponent<FindOwnersPage> {
         return new AddOwnerPage();
     }
 
-    public boolean isOwnersListDisplayed() {
-        return ownersList.isDisplayed();
+    public FindOwnersPage setSearchLastName(String searchLastName) {
+        searchByLastName.setValue(searchLastName);
+        return this;
     }
 
     @Override
