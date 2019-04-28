@@ -1,6 +1,7 @@
 package com.petclinic.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.netflix.config.DynamicProperty;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
@@ -22,6 +23,8 @@ public class FindOwnersPage extends LoadableComponent<FindOwnersPage> {
 
     @FindBy(id = "lastName")
     private SelenideElement searchByLastName;
+
+    private String findOwnerPageUrl = DynamicProperty.getInstance("petclinic.url").getString().concat("owners/find");
 
     public FindOwnersPage() {
         page(this);
@@ -48,13 +51,13 @@ public class FindOwnersPage extends LoadableComponent<FindOwnersPage> {
 
     @Override
     protected void load() {
-        open("http://localhost:8080/owners/find");
+        open(findOwnerPageUrl);
     }
 
     @Override
     protected void isLoaded() throws Error {
         try {
-            assertThat(url()).isEqualTo("http://localhost:8080/owners/find");
+            assertThat(url()).isEqualTo(findOwnerPageUrl);
         } catch (IllegalStateException e) {
             throw new Error(e);
         }

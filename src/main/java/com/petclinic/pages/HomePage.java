@@ -1,6 +1,7 @@
 package com.petclinic.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.netflix.config.DynamicProperty;
 import com.petclinic.components.NavigationBar;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.LoadableComponent;
@@ -14,6 +15,8 @@ public class HomePage extends LoadableComponent<HomePage> {
 
     @FindBy(css = "div[class^='container'] h2")
     private SelenideElement pageTitle;
+
+    private String homePageUrl = DynamicProperty.getInstance("petclinic.url").getString();
 
     public HomePage() {
         page(this);
@@ -29,13 +32,13 @@ public class HomePage extends LoadableComponent<HomePage> {
 
     @Override
     protected void load() {
-        open("http://localhost:8080/");
+        open(homePageUrl);
     }
 
     @Override
     protected void isLoaded() throws Error {
         try {
-            assertThat(url()).isEqualTo("http://localhost:8080/");
+            assertThat(url()).isEqualTo(homePageUrl);
         } catch (IllegalStateException e) {
             throw new Error(e);
         }
