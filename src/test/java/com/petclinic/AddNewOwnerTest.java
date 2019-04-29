@@ -12,13 +12,9 @@ import static org.fest.assertions.Assertions.assertThat;
 public class AddNewOwnerTest extends SeleniumBase {
 
     private String firstName = randomFirstName();
-
     private String lastName = randomLastName();
-
     private String address = randomAddress();
-
     private String city = randomCity();
-
     private String telephone = randomTelephoneNumber();
 
     @Test
