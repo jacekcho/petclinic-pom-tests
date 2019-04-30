@@ -1,18 +1,17 @@
 package com.petclinic.driver;
 
 import com.codeborne.selenide.WebDriverRunner;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class SeleniumBase {
 
-    private ChromeDriver driver;
+    private RemoteWebDriver driver;
 
     @BeforeMethod
     public void setUp() {
-        setUpDriver();
+        driver = Drivers.chromeDriver();
         setUpSelenide();
     }
 
@@ -20,11 +19,6 @@ public class SeleniumBase {
     public void tearDown() {
         if (driver != null)
             driver.quit();
-    }
-
-    private void setUpDriver() {
-        ChromeDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
     }
 
     private void setUpSelenide() {
