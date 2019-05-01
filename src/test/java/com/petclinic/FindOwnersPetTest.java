@@ -1,9 +1,9 @@
 package com.petclinic;
 
-import com.petclinic.driver.SeleniumBase;
 import com.petclinic.pages.FindOwnersPage;
 import com.petclinic.pages.OwnerDetailsPage;
 import com.petclinic.pages.OwnersListPage;
+import com.petclinic.selenium.SeleniumBase;
 import org.testng.annotations.Test;
 
 import static org.fest.assertions.Assertions.assertThat;

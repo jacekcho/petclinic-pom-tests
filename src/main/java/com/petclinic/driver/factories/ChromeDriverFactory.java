@@ -1,4 +1,4 @@
-package com.petclinic.driver;
+package com.petclinic.driver.factories;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ChromeDriverFactory implements DriverFactory<ChromeDriver> {
 
     @Override
-    public ChromeDriver getDriver() {
+    public ChromeDriver create() {
         ChromeDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }

@@ -1,6 +1,6 @@
 package com.petclinic;
 
-import com.petclinic.driver.SeleniumBase;
+import com.petclinic.selenium.SeleniumBase;
 import com.petclinic.pages.AddOwnerPage;
 import com.petclinic.pages.FindOwnersPage;
 import com.petclinic.pages.OwnerDetailsPage;

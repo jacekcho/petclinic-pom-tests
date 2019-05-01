@@ -1,6 +1,6 @@
 package com.petclinic;
 
-import com.petclinic.driver.SeleniumBase;
+import com.petclinic.selenium.SeleniumBase;
 import com.petclinic.pages.VeterinariansPage;
 import org.testng.annotations.Test;
 
