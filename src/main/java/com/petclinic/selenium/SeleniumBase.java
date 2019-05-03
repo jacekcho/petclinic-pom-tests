@@ -1,6 +1,7 @@
 package com.petclinic.selenium;
 
 import com.codeborne.selenide.WebDriverRunner;
+import com.netflix.config.DynamicStringProperty;
 import com.petclinic.driver.DriversFactory;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
@@ -10,9 +11,11 @@ public class SeleniumBase {
 
     private RemoteWebDriver driver;
 
+    private String browserType = new DynamicStringProperty("browser", "chrome").getValue();
+
     @BeforeMethod
-    public void setUp() throws Exception {
-        driver = DriversFactory.getDriver();
+    public void setUp() {
+        driver = DriversFactory.getDriver(browserType);
         setUpSelenide();
     }
 

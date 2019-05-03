@@ -29,7 +29,7 @@ public class NavigationBar {
     }
 
     public FindOwnersPage clickFindOwnersButton() {
-        findOwners.click();
+        findOwners.click(); //TODO logic for mobile / tablet version
         return new FindOwnersPage();
     }
 

@@ -1,4 +1,4 @@
-package com.petclinic.driver.factories;
+package com.petclinic.driver.abstracts;
 
 public interface DriverFactory<T> {
     public T create();
