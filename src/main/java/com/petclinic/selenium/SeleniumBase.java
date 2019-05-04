@@ -11,7 +11,7 @@ public class SeleniumBase {
 
     private RemoteWebDriver driver;
 
-    private String browserType = new DynamicStringProperty("browser", "chrome").getValue();
+    private static String browserType = new DynamicStringProperty("browser", "chrome").getValue();
 
     @BeforeMethod
     public void setUp() {
@@ -27,5 +27,9 @@ public class SeleniumBase {
 
     private void setUpSelenide() {
         WebDriverRunner.setWebDriver(driver);
+    }
+
+    public static boolean isMobile() { // move this method to the proper class
+        return browserType.equals("mobile");
     }
 }
