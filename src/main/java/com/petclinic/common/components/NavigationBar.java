@@ -1,14 +1,13 @@
-package com.petclinic.components;
+package com.petclinic.common.components;
 
 import com.codeborne.selenide.SelenideElement;
-import com.netflix.config.DynamicProperty;
 import com.petclinic.pages.FindOwnersPage;
 import com.petclinic.pages.HomePage;
 import com.petclinic.pages.VeterinariansPage;
-import com.petclinic.selenium.SeleniumBase;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Selenide.page;
+import static com.petclinic.common.PetClinicCommon.isMobile;
 
 public class NavigationBar {
 
@@ -29,7 +28,7 @@ public class NavigationBar {
     }
 
     public HomePage clickHomePageButton() {
-        if (SeleniumBase.isMobile()) {
+        if (isMobile()) {
             navigationBarToggle.click();
         }
         home.click();
@@ -37,7 +36,7 @@ public class NavigationBar {
     }
 
     public FindOwnersPage clickFindOwnersButton() {
-        if (SeleniumBase.isMobile()) {
+        if (isMobile()) {
             navigationBarToggle.click();
         }
         findOwners.click();
@@ -45,15 +44,10 @@ public class NavigationBar {
     }
 
     public VeterinariansPage clickVeterinariansButton() {
-        if (SeleniumBase.isMobile()) {
+        if (isMobile()) {
             navigationBarToggle.click();
         }
         veterinarians.click();
         return new VeterinariansPage();
     }
-
-    private boolean isMobile() {
-        return DynamicProperty.getInstance("browser").getString().equals("mobile");
-    }
-
 }

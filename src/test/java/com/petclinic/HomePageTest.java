@@ -1,5 +1,6 @@
 package com.petclinic;
 
+import com.petclinic.common.PetClinicCommon;
 import com.petclinic.selenium.SeleniumBase;
 import com.petclinic.pages.FindOwnersPage;
 import com.petclinic.pages.HomePage;
@@ -22,10 +23,10 @@ public class HomePageTest extends SeleniumBase {
     @Test
     public void shouldNavigateToFindOwnersPage() {
         // given
-        HomePage homePage = new HomePage().get();
+        new HomePage().get();
 
         // when
-        FindOwnersPage findOwnersPage = homePage
+        FindOwnersPage findOwnersPage = PetClinicCommon
                 .getNavigationBarComponent()
                 .clickFindOwnersButton();
 
@@ -36,10 +37,10 @@ public class HomePageTest extends SeleniumBase {
     @Test
     public void shouldNavigateToVeterinariansPage() {
         // given
-        HomePage homePage = new HomePage().get();
+        new HomePage().get();
 
         // when
-        VeterinariansPage veterinariansPage = homePage
+        VeterinariansPage veterinariansPage = PetClinicCommon
                 .getNavigationBarComponent()
                 .clickVeterinariansButton();
 

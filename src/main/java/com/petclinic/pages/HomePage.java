@@ -2,7 +2,6 @@ package com.petclinic.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.netflix.config.DynamicProperty;
-import com.petclinic.components.NavigationBar;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
@@ -24,10 +23,6 @@ public class HomePage extends LoadableComponent<HomePage> {
 
     public String getPageTitle() {
         return pageTitle.getText();
-    }
-
-    public NavigationBar getNavigationBarComponent() {
-        return new NavigationBar();
     }
 
     @Override

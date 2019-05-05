@@ -1,21 +1,20 @@
 package com.petclinic.selenium;
 
 import com.codeborne.selenide.WebDriverRunner;
-import com.netflix.config.DynamicStringProperty;
 import com.petclinic.driver.DriversFactory;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import static com.petclinic.utils.PropertiesManager.getBrowserType;
+
 public class SeleniumBase {
 
     private RemoteWebDriver driver;
 
-    private static String browserType = new DynamicStringProperty("browser", "chrome").getValue();
-
     @BeforeMethod
     public void setUp() {
-        driver = DriversFactory.getDriver(browserType);
+        driver = DriversFactory.getDriver(getBrowserType());
         setUpSelenide();
     }
 
@@ -29,7 +28,4 @@ public class SeleniumBase {
         WebDriverRunner.setWebDriver(driver);
     }
 
-    public static boolean isMobile() { // move this method to the proper class
-        return browserType.equals("mobile");
-    }
 }
