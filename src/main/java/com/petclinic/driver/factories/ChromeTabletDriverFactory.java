@@ -1,22 +1,18 @@
 package com.petclinic.driver.factories;
 
+import com.petclinic.dictionary.Device;
 import com.petclinic.driver.abstracts.DriverFactory;
+import com.petclinic.driver.utils.CustomChromeOptions;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ChromeTabletDriverFactory implements DriverFactory<ChromeDriver> {
 
     @Override
-    public ChromeDriver create() { //TODO refactoring needed
+    public ChromeDriver create() {
         ChromeDriverManager.chromedriver().setup();
-        Map<String, String> mobileEmulation = new HashMap<>();
-        mobileEmulation.put("deviceName", "iPad");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+        ChromeOptions chromeOptions = new CustomChromeOptions().getEmulationOptions(Device.TABLET);
         return new ChromeDriver(chromeOptions);
     }
 }
