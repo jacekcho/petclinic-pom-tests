@@ -34,9 +34,6 @@ public class AddNewOwnerTest extends SeleniumBase {
                 .clickAddOwnerButton();
 
         // then
-        assertThat(ownerDetailsPage.getOwnerName()).contains(firstName + " " + lastName);
-        assertThat(ownerDetailsPage.getOwnerAddress()).contains(address);
-        assertThat(ownerDetailsPage.getOwnerCity()).contains(city);
-        assertThat(ownerDetailsPage.getOwnerTelephone()).contains(telephone);
+        assertThat(ownerDetailsPage.getOwnerName()).isEqualTo(firstName + " " + lastName);
     }
 }

@@ -1,6 +1,7 @@
 package com.petclinic.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Selenide.page;
@@ -21,9 +22,6 @@ public class AddOwnerPage {
 
     @FindBy(id = "telephone")
     private SelenideElement telephone;
-
-    @FindBy(css = "button[type='submit']")
-    private SelenideElement addOwnerButton;
 
     public AddOwnerPage() {
         page(this);
@@ -55,7 +53,6 @@ public class AddOwnerPage {
     }
 
     public OwnerDetailsPage clickAddOwnerButton() {
-        addOwnerButton.click();
-        return new OwnerDetailsPage();
+        throw new NotImplementedException("com.petclinic.pages.AddOwnerPage.clickAddOwnerButton has not been implemented yet!"); //TODO
     }
 }

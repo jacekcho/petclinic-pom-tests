@@ -36,7 +36,7 @@ public class OwnerDetailsPage {
                 .map(SelenideElement::getText)
                 .filter(r -> r.contains(rowName))
                 .findFirst()
-                .orElseThrow(() -> new Exception("failed to find row with Owner " + rowName));
+                .orElseThrow(() -> new Exception("failed to find row by name: " + rowName));
     }
 
 }
